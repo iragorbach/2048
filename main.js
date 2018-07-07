@@ -6,7 +6,7 @@ let mainArray = [
 ];
 
 function setPlace() {
-    let startNumbers = [2, 4];
+    let startNumbers = [21, 4];
     let randomPlace;
     let randomPlace1;
 
