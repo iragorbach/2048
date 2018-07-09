@@ -6,23 +6,14 @@ let mainArray = [
 ];
 
 function setPlace() {
-    let startNumbers = [21, 4];
-    let randomPlace;
-    let randomPlace1;
+    let gotArray = getEmptyCells();
 
-    function generate() {
+    let number = gotArray[Math.round(Math.random() * gotArray.length - 1)];
+    mainArray[number[0]][number[1]] = (Math.round(Math.random()) ) ? 2 : 4;
+    console.log(number);
 
-        randomPlace = Math.round(Math.random() * 3);
-        randomPlace1 = Math.round(Math.random() * 3);
-        return [randomPlace, randomPlace1];
-    }
-    generate();
-
-    if (mainArray[randomPlace][randomPlace1] == null) {
-        mainArray[randomPlace][randomPlace1] = startNumbers[Math.round(Math.random())];
-    } else {
-        generate();
-        mainArray[randomPlace][randomPlace1] = startNumbers[Math.round(Math.random())];
+    if (!gotArray.length) {
+        console.log('Game over!');
     }
 }
 
@@ -95,6 +86,21 @@ document.onkeydown = function(e) {
             break;
     }
 };
+
+function getEmptyCells() {
+    let emptyCells = [];
+
+    mainArray.forEach(function (item, i) {
+        item.forEach(function (value, j) {
+            if (value == null){
+                emptyCells.push([i, j]);
+            }
+        });
+    });
+
+    return emptyCells;
+}
+
 
 
 
